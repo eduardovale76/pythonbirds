@@ -16,8 +16,13 @@ class Pessoa:
     def nome_e_atributo_de_classe(cls):
         return f'{cls} - olhos {cls.olhos}'
 
+# Herança
+
+class Homem(Pessoa):
+    pass
+
 if __name__ == '__main__':
-    rafael = Pessoa(nome='Rafael', idade=7)
+    rafael = Homem(nome='Rafael', idade=7)
     eduardo = Pessoa(rafael, nome='Eduardo', idade=44)
     print(Pessoa.cumprimentar(eduardo))
     print(rafael.cumprimentar())
@@ -37,3 +42,9 @@ if __name__ == '__main__':
     print(rafael.__dict__)
     print(f'{Pessoa.metodo_estatico(), eduardo.metodo_estatico()}')
     print(f'{Pessoa.nome_e_atributo_de_classe(), eduardo.nome_e_atributo_de_classe()}')
+
+    pessoa = Pessoa('Anonino')
+    print(isinstance(pessoa,Pessoa))
+    print(isinstance(pessoa,Homem))
+    print(isinstance(rafael,Pessoa))
+    print(isinstance(rafael,Homem))
